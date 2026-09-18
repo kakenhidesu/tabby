@@ -210,7 +210,7 @@ export class Application {
             this.tray.setContextMenu(contextMenu)
         }
 
-        this.tray.setToolTip(`Tabby ${app.getVersion()}`)
+        this.tray.setToolTip(`Tabby ${app.getVersion().replace('-gamma', 'γ')}`)
     }
 
     disableTray (): void {

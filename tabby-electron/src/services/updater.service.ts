@@ -12,6 +12,7 @@ export class ElectronUpdaterService extends UpdaterService {
     private downloaded: Promise<boolean>
     private electronUpdaterAvailable = true
     private updateURL: string
+    private forkBuild = false
 
     constructor (
         log: LogService,
@@ -22,6 +23,13 @@ export class ElectronUpdaterService extends UpdaterService {
     ) {
         super()
         this.logger = log.create('updater')
+
+        // Fork builds must never be replaced by an upstream release
+        if (this.electron.app.getVersion().includes('-gamma')) {
+            this.forkBuild = true
+            this.electronUpdaterAvailable = false
+            return
+        }
 
         if (process.platform === 'linux' || process.env.PORTABLE_EXECUTABLE_FILE) {
             this.electronUpdaterAvailable = false
@@ -59,6 +67,9 @@ export class ElectronUpdaterService extends UpdaterService {
     }
 
     async check (): Promise<boolean> {
+        if (this.forkBuild) {
+            return false
+        }
         if (this.electronUpdaterAvailable) {
             return new Promise((resolve, reject) => {
                 // eslint-disable-next-line @typescript-eslint/init-declarations, prefer-const

@@ -190,7 +190,8 @@ export class ElectronPlatformService extends PlatformService {
     }
 
     getAppVersion (): string {
-        return this.electron.app.getVersion()
+        // Fork builds are packaged as X.Y.Z-gamma (γ isn't valid semver) - see scripts/vars.mjs
+        return this.electron.app.getVersion().replace('-gamma', 'γ')
     }
 
     async listFonts (): Promise<string[]> {

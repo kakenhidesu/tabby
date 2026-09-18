@@ -6,6 +6,7 @@ export class TerminalConfigProvider extends ConfigProvider {
         terminal: {
             autoOpen: true,
             useConPTY: true,
+            useConPTYDLL: false,
             environment: {},
             setComSpec: false,
         },

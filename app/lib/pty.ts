@@ -93,7 +93,16 @@ export class PTY {
     exited = false
 
     constructor (private id: string, private app: Application, ...args: any[]) {
-        this.pty = (nodePTY as any).spawn(...args)
+        try {
+            this.pty = (nodePTY as any).spawn(...args)
+        } catch (error) {
+            // node-pty throws if the bundled conpty.dll is missing - fall back to the inbox ConPTY
+            if (!args[2]?.useConptyDll) {
+                throw error
+            }
+            console.warn('Could not use the bundled conpty.dll, falling back to the system ConPTY:', error)
+            this.pty = (nodePTY as any).spawn(args[0], args[1], { ...args[2], useConptyDll: false })
+        }
         for (const key of ['close', 'exit']) {
             (this.pty as any).on(key, (...eventArgs) => this.emit(key, ...eventArgs))
         }

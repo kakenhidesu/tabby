@@ -104,6 +104,8 @@ export class Session extends BaseSession {
                 cwd = undefined
             }
 
+            const useConPTY = isWindowsBuild(WIN_BUILD_CONPTY_SUPPORTED) && this.config.store.terminal.useConPTY
+
             pty = await this.ptyInterface.spawn(options.command, options.args, {
                 name: 'xterm-256color',
                 cols: options.width ?? 80,
@@ -112,7 +114,9 @@ export class Session extends BaseSession {
                 cwd,
                 env: env,
                 // `1` instead of `true` forces ConPTY even if unstable
-                useConpty: isWindowsBuild(WIN_BUILD_CONPTY_SUPPORTED) && this.config.store.terminal.useConPTY ? 1 : false,
+                useConpty: useConPTY ? 1 : false,
+                // Use the conpty.dll + OpenConsole.exe bundled with node-pty instead of the inbox conhost
+                useConptyDll: useConPTY && this.config.store.terminal.useConPTYDLL,
             })
 
             this.guessedCWD = cwd ?? null

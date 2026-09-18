@@ -10,6 +10,16 @@ h3.mb-3(translate) Shell
         (ngModelChange)='config.save()'
     )
 
+.form-line(*ngIf='isConPTYAvailable && config.store.terminal.useConPTY')
+    .header
+        .title(translate) Use bundled ConPTY
+        .description(translate) Uses the newer conpty.dll shipped with Tabby instead of the one built into Windows. Fixes mouse and alternate screen support on Windows 10. Applies to new tabs.
+
+    toggle(
+        [(ngModel)]='config.store.terminal.useConPTYDLL',
+        (ngModelChange)='config.save()'
+    )
+
 .alert.alert-info.d-flex.align-items-center(*ngIf='config.store.terminal.useConPTY && isConPTYAvailable && !isConPTYStable')
     .me-auto(translate) Windows 10 build 18309 or above is recommended for ConPTY
 

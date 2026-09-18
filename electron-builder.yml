@@ -38,6 +38,7 @@ asarUnpack:
 - 'dist/*.map'
 - node_modules/keytar/build/Release/*.node
 - node_modules/**/*.node
+- node_modules/node-pty/**/conpty/*
 win:
   icon: "./build/windows/icon.ico"
   artifactName: tabby-${version}-portable-${env.ARCH}.${ext}
