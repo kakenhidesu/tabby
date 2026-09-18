@@ -1,33 +1,5 @@
-[![](docs/readme.png)](https://tabby.sh)
-
-
-<p align="center">
-  <a href="https://github.com/Eugeny/tabby/releases/latest"><img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/eugeny/tabby/total.svg?label=DOWNLOADS&logo=github&style=for-the-badge"></a> &nbsp; <a href="https://nightly.link/Eugeny/tabby/workflows/build/master"><img src="https://shields.io/badge/-Nightly%20Builds-orange?logo=hackthebox&logoColor=fff&style=for-the-badge"/></a> &nbsp; <a href="https://discord.gg/Vn7BjmzhtF"><img alt="Discord" src="https://img.shields.io/discord/1280890060195233934?style=for-the-badge&color=blue&logo=discord&logoColor=white&label=Discord"></a> &nbsp <a href="https://translate.tabby.sh/"><img alt="Translate" src="https://shields.io/badge/Translate-UI-white?logo=googletranslate&style=for-the-badge&color=white&logoColor=fff"></a>
-</p>
-
-<p align="center">
-  <a href="https://ko-fi.com/J3J8KWTF">
-    <img src="https://cdn.ko-fi.com/cdn/kofi3.png?v=2" width="150">
-  </a>
-</p>
-
----
-
-
-> 👋 Managing remote environments? Check out [Warpgate, my smart SSH/HTTP/MySQL bastion server](https://github.com/warp-tech/warpgate), it works great with Tabby, you'll love it.
-
-----
-
-### Downloads:
-
-* [Latest release](https://github.com/Eugeny/tabby/releases/latest)
-* [Repositories](https://packagecloud.io/eugeny/tabby): [Debian/Ubuntu-based](https://packagecloud.io/eugeny/tabby/install#bash-deb), [RPM-based](https://packagecloud.io/eugeny/tabby/install#bash-rpm)
-* [Latest nightly build](https://nightly.link/Eugeny/tabby/workflows/build/master)
-
-<br/>
-<p align="center">
-This README is also available in: <a  href="./README.es-ES.md">:es: Spanish</a> · <a  href="./README.ru-RU.md">:ru: Русский</a> · <a  href="./README.ko-KR.md">:kr: 한국어</a> · <a  href="./README.zh-CN.md">:cn: 简体中文</a> · <a  href="./README.it-IT.md">:it: Italiano</a> · <a href="./README.de-DE.md">:de: Deutsch</a> · <a href="./README.ja-JP.md">:jp: 日本語</a> · <a href="./README.id-ID.md">:id: Bahasa Indonesia</a> · <a href="./README.pt-BR.md">:brazil: Português</a> · <a href="./README.pl-PL.md">:poland: Polski</a>
-</p>
+## Tabby γ
+基于上游 [Eugeny/tabby v1.0.234](https://github.com/Eugeny/tabby/releases/tag/v1.0.234) 的个人自用分支，γ 后缀表示非官方构建。
 
 ----
 
